@@ -4,25 +4,34 @@ import Main from "./components/Main";
 import StartScreen from "./components/StartScreen";
 import Error from "./components/Error";
 import Loader from "./components/Loader";
+import Question from "./components/Question";
+import Footer from "./components/Footer";
 import "./index.css";
+import ProgressBar from "./components/ProgressBar";
 
 const initialState = {
-  loading: true,
-  error: false,
+  status: "loading",
   questions: [],
+  index: 0,
 };
 
 function reducer(state, action) {
   switch (action.type) {
-    case "ready":
-      return { ...state, loading: false, questions: action.payload };
-    case "error":
-      return { ...state, error: true };
+    case "dataReceived":
+      return { ...state, status: "ready", questions: action.payload };
+    case "dataFailed":
+      return { ...state, status: "error" };
+    case "quizStart":
+      return { ...state, status: "start" };
+    case "nextQuestion":
+      return { ...state, index: state.index++ };
+    default:
+      return new Error("Unknown action " + action);
   }
 }
 
 function App() {
-  const [{ loading, error, questions }, dispatch] = useReducer(
+  const [{ status, questions, index }, dispatch] = useReducer(
     reducer,
     initialState
   );
@@ -32,17 +41,26 @@ function App() {
   useEffect(function () {
     fetch("http://localhost:8000/questions")
       .then((res) => res.json())
-      .then((data) => dispatch({ type: "ready", payload: data }))
-      .catch(() => dispatch({ type: "error" }));
+      .then((data) => dispatch({ type: "dataReceived", payload: data }))
+      .catch(() => dispatch({ type: "dataFailed" }));
   }, []);
 
   return (
     <div className="app">
       <Header />
       <Main>
-        {error && <Error />}
-        {loading && <Loader />}
-        <StartScreen numOfQuestions={numOfQuestions} />
+        {status === "loading" && <Loader />}
+        {status === "error" && <Error />}
+        {status === "ready" && (
+          <StartScreen numOfQuestions={numOfQuestions} dispatch={dispatch} />
+        )}
+        {status === "start" && (
+          <>
+            <ProgressBar />
+            <Question questions={questions} currentQuestion={index} />
+            <Footer dispatch={dispatch} />
+          </>
+        )}
       </Main>
     </div>
   );
