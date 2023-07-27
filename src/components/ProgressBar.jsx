@@ -1,4 +1,10 @@
-function ProgressBar({ progress, numOfQuestions, currentQuestion, points }) {
+function ProgressBar({
+  progress,
+  numOfQuestions,
+  currentQuestion,
+  points,
+  totalPoints,
+}) {
   return (
     <header className="progress">
       <progress value={progress} max={numOfQuestions} />
@@ -6,7 +12,7 @@ function ProgressBar({ progress, numOfQuestions, currentQuestion, points }) {
         Question <strong>{currentQuestion + 1}</strong> / {numOfQuestions}
       </p>
       <p>
-        <strong>{points}</strong> / 280
+        <strong>{points}</strong> / {totalPoints}
       </p>
     </header>
   );

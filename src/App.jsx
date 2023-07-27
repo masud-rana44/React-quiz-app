@@ -6,8 +6,9 @@ import Error from "./components/Error";
 import Loader from "./components/Loader";
 import Question from "./components/Question";
 import Footer from "./components/Footer";
-import "./index.css";
 import ProgressBar from "./components/ProgressBar";
+import FinalScreen from "./components/FinalScreen";
+import "./index.css";
 
 const initialState = {
   status: "loading",
@@ -16,6 +17,8 @@ const initialState = {
   userAnswer: null,
   points: 0,
   progress: 0,
+  highScore: 0,
+  timesRemaining: 0,
 };
 
 function reducer(state, action) {
@@ -23,7 +26,16 @@ function reducer(state, action) {
     case "dataReceived":
       return { ...state, status: "ready", questions: action.payload };
     case "quizStart":
-      return { ...state, status: "start" };
+      return {
+        ...state,
+        timesRemaining: state.questions.length * 30,
+        status: "start",
+      };
+    case "updateTimer":
+      return {
+        ...state,
+        timesRemaining: state.timesRemaining - 1,
+      };
     case "selectAnswer":
       return {
         ...state,
@@ -33,6 +45,20 @@ function reducer(state, action) {
       };
     case "nextQuestion":
       return { ...state, userAnswer: null, index: state.index++ };
+    case "quizSubmit":
+      return {
+        ...state,
+        highScore:
+          state.highScore < state.points ? state.points : state.highScore,
+        status: "submit",
+      };
+    case "quizReset":
+      return {
+        ...initialState,
+        highScore: state.highScore,
+        questions: state.questions,
+        status: "ready",
+      };
     case "dataFailed":
       return { ...state, status: "error" };
     default:
@@ -41,10 +67,25 @@ function reducer(state, action) {
 }
 
 function App() {
-  const [{ status, questions, index, userAnswer, points, progress }, dispatch] =
-    useReducer(reducer, initialState);
+  const [
+    {
+      status,
+      questions,
+      index,
+      userAnswer,
+      points,
+      progress,
+      highScore,
+      timesRemaining,
+    },
+    dispatch,
+  ] = useReducer(reducer, initialState);
 
   const numOfQuestions = questions.length;
+  const isLast = index === numOfQuestions - 1;
+  const totalPoints = questions
+    ?.map((ques) => ques.points)
+    .reduce((cur, acc) => (acc += cur), 0);
 
   useEffect(function () {
     fetch("http://localhost:8000/questions")
@@ -69,6 +110,7 @@ function App() {
               currentQuestion={index}
               numOfQuestions={numOfQuestions}
               points={points}
+              totalPoints={totalPoints}
             />
             <Question
               questions={questions}
@@ -76,8 +118,21 @@ function App() {
               userAnswer={userAnswer}
               dispatch={dispatch}
             />
-            <Footer userAnswer={userAnswer} dispatch={dispatch} />
+            <Footer
+              userAnswer={userAnswer}
+              isLast={isLast}
+              timesRemaining={timesRemaining}
+              dispatch={dispatch}
+            />
           </>
+        )}
+        {status === "submit" && (
+          <FinalScreen
+            points={points}
+            totalPoints={totalPoints}
+            highScore={highScore}
+            dispatch={dispatch}
+          />
         )}
       </Main>
     </div>
