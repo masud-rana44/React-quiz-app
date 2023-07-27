@@ -13,28 +13,36 @@ const initialState = {
   status: "loading",
   questions: [],
   index: 0,
+  userAnswer: null,
+  points: 0,
+  progress: 0,
 };
 
 function reducer(state, action) {
   switch (action.type) {
     case "dataReceived":
       return { ...state, status: "ready", questions: action.payload };
-    case "dataFailed":
-      return { ...state, status: "error" };
     case "quizStart":
       return { ...state, status: "start" };
+    case "selectAnswer":
+      return {
+        ...state,
+        progress: state.progress++,
+        points: state.points + action.points,
+        userAnswer: action.payload,
+      };
     case "nextQuestion":
-      return { ...state, index: state.index++ };
+      return { ...state, userAnswer: null, index: state.index++ };
+    case "dataFailed":
+      return { ...state, status: "error" };
     default:
       return new Error("Unknown action " + action);
   }
 }
 
 function App() {
-  const [{ status, questions, index }, dispatch] = useReducer(
-    reducer,
-    initialState
-  );
+  const [{ status, questions, index, userAnswer, points, progress }, dispatch] =
+    useReducer(reducer, initialState);
 
   const numOfQuestions = questions.length;
 
@@ -56,9 +64,19 @@ function App() {
         )}
         {status === "start" && (
           <>
-            <ProgressBar />
-            <Question questions={questions} currentQuestion={index} />
-            <Footer dispatch={dispatch} />
+            <ProgressBar
+              progress={progress}
+              currentQuestion={index}
+              numOfQuestions={numOfQuestions}
+              points={points}
+            />
+            <Question
+              questions={questions}
+              currentQuestion={index}
+              userAnswer={userAnswer}
+              dispatch={dispatch}
+            />
+            <Footer userAnswer={userAnswer} dispatch={dispatch} />
           </>
         )}
       </Main>

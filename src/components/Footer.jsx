@@ -1,12 +1,14 @@
-function Footer({ dispatch }) {
+function Footer({ userAnswer, dispatch }) {
   return (
     <footer>
-      <button
-        className="btn btn-ui"
-        onClick={() => dispatch({ type: "nextQuestion" })}
-      >
-        Next
-      </button>
+      {userAnswer && (
+        <button
+          className="btn btn-ui"
+          onClick={() => dispatch({ type: "nextQuestion" })}
+        >
+          Next
+        </button>
+      )}
     </footer>
   );
 }
