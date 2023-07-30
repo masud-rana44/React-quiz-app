@@ -1,18 +1,18 @@
 function ProgressBar({
-  progress,
-  numOfQuestions,
-  currentQuestion,
+  index,
+  numQuestions,
   points,
-  totalPoints,
+  maxPossiblePoints,
+  answer,
 }) {
   return (
     <header className="progress">
-      <progress value={progress} max={numOfQuestions} />
+      <progress value={index + Number(answer !== null)} max={numQuestions} />
       <p>
-        Question <strong>{currentQuestion + 1}</strong> / {numOfQuestions}
+        Question <strong>{index + 1}</strong> / {numQuestions}
       </p>
       <p>
-        <strong>{points}</strong> / {totalPoints}
+        <strong>{points}</strong> / {maxPossiblePoints}
       </p>
     </header>
   );

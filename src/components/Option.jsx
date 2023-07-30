@@ -1,22 +1,20 @@
-function Option({ optionName, userAnswer, correctAnswer, points, dispatch }) {
-  const isCorrect = correctAnswer === optionName;
-  const isSelect = userAnswer === optionName;
+function Option({ option, index, answer, correctOption, dispatch }) {
+  const hasAnswered = answer !== null;
 
   return (
     <button
-      className={`btn btn-option ${
-        userAnswer && (isCorrect ? "correct" : "wrong")
-      } ${userAnswer && (isSelect ? "answer" : "")}`}
-      disabled={userAnswer}
+      className={`btn btn-option ${index === answer ? "answer" : ""} ${
+        hasAnswered ? (index === correctOption ? "correct" : "wrong") : ""
+      }`}
+      disabled={hasAnswered}
       onClick={() =>
         dispatch({
-          type: "selectAnswer",
-          payload: optionName,
-          points: isCorrect ? points : 0,
+          type: "newAnswer",
+          payload: index,
         })
       }
     >
-      {optionName}
+      {option}
     </button>
   );
 }

@@ -1,16 +1,10 @@
 import Options from "./Options";
 
-function Question({ questions, currentQuestion, userAnswer, dispatch }) {
+function Question({ question, dispatch, answer }) {
   return (
     <div>
-      <h4>{questions[currentQuestion].question}</h4>
-      <Options
-        options={questions[currentQuestion].options}
-        userAnswer={userAnswer}
-        correctAnswer={questions[currentQuestion].correctOption}
-        points={questions[currentQuestion].points}
-        dispatch={dispatch}
-      />
+      <h4>{question.question}</h4>
+      <Options question={question} answer={answer} dispatch={dispatch} />
     </div>
   );
 }

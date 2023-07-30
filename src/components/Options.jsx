@@ -1,15 +1,15 @@
 import Option from "./Option";
 
-function Options({ options, userAnswer, correctAnswer, points, dispatch }) {
+function Options({ question, dispatch, answer }) {
   return (
     <div className="options">
-      {options.map((option) => (
+      {question.options.map((option, index) => (
         <Option
           key={option}
-          optionName={option}
-          userAnswer={userAnswer}
-          correctAnswer={options[correctAnswer]}
-          points={points}
+          index={index}
+          option={option}
+          answer={answer}
+          correctOption={question.correctOption}
           dispatch={dispatch}
         />
       ))}
