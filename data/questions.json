@@ -1,139 +1,1104 @@
 {
   "questions": [
     {
-      "question": "Which is the most popular JavaScript framework?",
-      "options": ["Angular", "React", "Svelte", "Vue"],
-      "correctOption": 1,
-      "points": 10
-    },
-    {
-      "question": "Which company invented React?",
-      "options": ["Google", "Apple", "Netflix", "Facebook"],
-      "correctOption": 3,
-      "points": 10
-    },
-    {
-      "question": "What's the fundamental building block of React apps?",
-      "options": ["Components", "Blocks", "Elements", "Effects"],
-      "correctOption": 0,
-      "points": 10
-    },
-    {
-      "question": "What's the name of the syntax we use to describe the UI in React components?",
-      "options": ["FBJ", "Babel", "JSX", "ES2015"],
-      "correctOption": 2,
-      "points": 10
-    },
-    {
-      "question": "How does data flow naturally in React apps?",
+      "question": "What is React?",
       "options": [
-        "From parents to children",
-        "From children to parents",
-        "Both ways",
-        "The developers decides"
+        "A JavaScript library for building user interfaces",
+        "A server-side scripting language",
+        "A database management system",
+        "A CSS preprocessor"
       ],
       "correctOption": 0,
       "points": 10
     },
     {
-      "question": "How to pass data into a child component?",
-      "options": ["State", "Props", "PropTypes", "Parameters"],
-      "correctOption": 1,
-      "points": 10
-    },
-    {
-      "question": "When to use derived state?",
+      "question": "How can you install React in your project?",
       "options": [
-        "Whenever the state should not trigger a re-render",
-        "Whenever the state can be synchronized with an effect",
-        "Whenever the state should be accessible to all components",
-        "Whenever the state can be computed from another state variable"
-      ],
-      "correctOption": 3,
-      "points": 30
-    },
-    {
-      "question": "What triggers a UI re-render in React?",
-      "options": [
-        "Running an effect",
-        "Passing props",
-        "Updating state",
-        "Adding event listeners to DOM elements"
-      ],
-      "correctOption": 2,
-      "points": 20
-    },
-    {
-      "question": "When do we directly \"touch\" the DOM in React?",
-      "options": [
-        "When we need to listen to an event",
-        "When we need to change the UI",
-        "When we need to add styles",
-        "Almost never"
-      ],
-      "correctOption": 3,
-      "points": 20
-    },
-    {
-      "question": "In what situation do we use a callback to update state?",
-      "options": [
-        "When updating the state will be slow",
-        "When the updated state is very data-intensive",
-        "When the state update should happen faster",
-        "When the new state depends on the previous state"
-      ],
-      "correctOption": 3,
-      "points": 30
-    },
-    {
-      "question": "If we pass a function to useState, when will that function be called?",
-      "options": [
-        "On each re-render",
-        "Each time we update the state",
-        "Only on the initial render",
-        "The first time we update the state"
-      ],
-      "correctOption": 2,
-      "points": 30
-    },
-    {
-      "question": "Which hook to use for an API request on the component's initial render?",
-      "options": ["useState", "useEffect", "useRef", "useReducer"],
-      "correctOption": 1,
-      "points": 10
-    },
-    {
-      "question": "Which variables should go into the useEffect dependency array?",
-      "options": [
-        "Usually none",
-        "All our state variables",
-        "All state and props referenced in the effect",
-        "All variables needed for clean up"
-      ],
-      "correctOption": 2,
-      "points": 30
-    },
-    {
-      "question": "An effect will always run on the initial render.",
-      "options": [
-        "True",
-        "It depends on the dependency array",
-        "False",
-        "In depends on the code in the effect"
+        "Using npm",
+        "Using pip",
+        "Downloading from the React website",
+        "Using a CDN link"
       ],
       "correctOption": 0,
-      "points": 30
+      "points": 10
     },
     {
-      "question": "When will an effect run if it doesn't have a dependency array?",
+      "question": "What is JSX in React?",
       "options": [
-        "Only when the component mounts",
-        "Only when the component unmounts",
-        "The first time the component re-renders",
-        "Each time the component is re-rendered"
+        "A data fetching library",
+        "A query language for databases",
+        "A templating engine",
+        "A syntax extension for JavaScript"
+      ],
+      "correctOption": 3,
+      "points": 10
+    },
+    {
+      "question": "How do you render a React component on the page?",
+      "options": [
+        "ReactDOM.renderComponent()",
+        "React.render()",
+        "React.renderComponentToPage()",
+        "ReactDOM.render()"
+      ],
+      "correctOption": 3,
+      "points": 10
+    },
+    {
+      "question": "What is the purpose of the virtual DOM in React?",
+      "options": [
+        "To handle asynchronous operations",
+        "To perform server-side rendering",
+        "To optimize DOM manipulation",
+        "To manage authentication and authorization"
+      ],
+      "correctOption": 2,
+      "points": 10
+    },
+    {
+      "question": "What is the significance of keys in React lists?",
+      "options": [
+        "They provide a unique identifier for elements in an array",
+        "They trigger a re-render of the entire list",
+        "They allow React components to communicate with each other",
+        "They control the access permissions for API requests"
+      ],
+      "correctOption": 0,
+      "points": 20
+    },
+    {
+      "question": "What is the purpose of the 'children' prop in React?",
+      "options": [
+        "It specifies the child components of a parent component",
+        "It holds the content between the opening and closing tags of a component",
+        "It represents the number of child elements in a component",
+        "It manages the state of child components"
+      ],
+      "correctOption": 1,
+      "points": 20
+    },
+    {
+      "question": "What are React hooks?",
+      "options": [
+        "Functions that allow you to 'hook' into React's lifecycle",
+        "Reusable UI components in React",
+        "Functions that handle HTTP requests",
+        "State management libraries in React"
+      ],
+      "correctOption": 0,
+      "points": 10
+    },
+    {
+      "question": "What hook would you use to add state to a functional component?",
+      "options": [
+        "useState()",
+        "useEffect()",
+        "useReducer()",
+        "useStateManagement()"
+      ],
+      "correctOption": 0,
+      "points": 10
+    },
+    {
+      "question": "How do you perform side effects in React components?",
+      "options": [
+        "By using the useEffect() hook",
+        "By directly manipulating the DOM",
+        "By modifying state directly",
+        "By using conditional rendering"
+      ],
+      "correctOption": 0,
+      "points": 10
+    },
+    {
+      "question": "What is the purpose of the 'useEffect' hook in React?",
+      "options": [
+        "To handle HTTP requests",
+        "To create reusable custom hooks",
+        "To manage state in functional components",
+        "To perform side effects in functional components"
+      ],
+      "correctOption": 3,
+      "points": 10
+    },
+    {
+      "question": "What will happen if you call the 'useState' hook inside a loop?",
+      "options": [
+        "It will cause an infinite loop",
+        "It will throw an error",
+        "It will only work on the first iteration",
+        "It will create separate state variables for each iteration"
       ],
       "correctOption": 3,
       "points": 20
+    },
+    {
+      "question": "What is the purpose of the 'useReducer' hook?",
+      "options": [
+        "To handle form submissions in React",
+        "To manage state in complex applications",
+        "To perform asynchronous operations",
+        "To create reusable custom hooks"
+      ],
+      "correctOption": 1,
+      "points": 20
+    },
+    {
+      "question": "What is React context used for?",
+      "options": [
+        "To handle component props",
+        "To manage state in functional components",
+        "To pass data through the component tree without having to pass props down manually",
+        "To perform server-side rendering"
+      ],
+      "correctOption": 2,
+      "points": 10
+    },
+    {
+      "question": "What is the significance of shouldComponentUpdate() in React class components?",
+      "options": [
+        "It determines if a component should be rendered",
+        "It triggers a re-render of the entire component tree",
+        "It sets the initial state of a component",
+        "It handles asynchronous operations"
+      ],
+      "correctOption": 0,
+      "points": 10
+    },
+    {
+      "question": "What is the purpose of the 'forwardRef' function in React?",
+      "options": [
+        "To create refs for functional components",
+        "To pass props to child components",
+        "To optimize the performance of functional components",
+        "To forward data from one component to another"
+      ],
+      "correctOption": 0,
+      "points": 10
+    },
+    {
+      "question": "What are React portals used for?",
+      "options": [
+        "To manage authentication and authorization",
+        "To perform server-side rendering",
+        "To handle HTTP requests",
+        "To render children into a different DOM subtree"
+      ],
+      "correctOption": 3,
+      "points": 20
+    },
+    {
+      "question": "What is the purpose of the 'useMemo' hook in React?",
+      "options": [
+        "To perform server-side rendering",
+        "To memoize expensive computations",
+        "To handle asynchronous operations",
+        "To manage state in functional components"
+      ],
+      "correctOption": 1,
+      "points": 20
+    },
+    {
+      "question": "What is React Router used for?",
+      "options": [
+        "To manage state in React applications",
+        "To perform server-side rendering",
+        "To handle HTTP requests",
+        "To implement navigation in a single-page application"
+      ],
+      "correctOption": 3,
+      "points": 10
+    },
+    {
+      "question": "What are React components?",
+      "options": [
+        "Functions that handle HTTP requests",
+        "Reusable UI elements that encapsulate logic and markup",
+        "Built-in HTML elements like div and span",
+        "Functions that manage state in React applications"
+      ],
+      "correctOption": 1,
+      "points": 10
+    },
+    {
+      "question": "How can you optimize performance in React?",
+      "options": [
+        "By using a higher-order component (HOC)",
+        "By using the 'useEffect' hook",
+        "By rendering fewer components",
+        "By avoiding the use of React hooks"
+      ],
+      "correctOption": 2,
+      "points": 10
+    },
+    {
+      "question": "What are controlled components in React forms?",
+      "options": [
+        "Components that use a remote server for state management",
+        "Components that manage their own state internally",
+        "Components that are rendered conditionally",
+        "Components that receive their current value through props and notify changes through callbacks"
+      ],
+      "correctOption": 3,
+      "points": 20
+    },
+    {
+      "question": "What is the purpose of the 'dangerouslySetInnerHTML' attribute in React?",
+      "options": [
+        "To create inline styles",
+        "To sanitize user input",
+        "To render raw HTML content",
+        "To handle HTTP requests"
+      ],
+      "correctOption": 2,
+      "points": 10
+    },
+    {
+      "question": "What is React.memo used for?",
+      "options": [
+        "To perform server-side rendering",
+        "To create memoized selectors",
+        "To optimize functional components for performance",
+        "To manage state in class components"
+      ],
+      "correctOption": 2,
+      "points": 10
+    },
+    {
+      "question": "What is the purpose of the 'shouldComponentUpdate' lifecycle method in class components?",
+      "options": [
+        "To control the component's initial rendering",
+        "To determine if the component should re-render or not",
+        "To access props and state within the component",
+        "To trigger side effects when the component mounts"
+      ],
+      "correctOption": 1,
+      "points": 10
+    },
+    {
+      "question": "What is the significance of the 'key' prop when rendering lists in React?",
+      "options": [
+        "It helps React identify which items have changed, added, or removed",
+        "It acts as a unique identifier for the component",
+        "It allows the component to communicate with the parent component",
+        "It controls the order in which list items are rendered"
+      ],
+      "correctOption": 0,
+      "points": 20
+    },
+    {
+      "question": "What is the purpose of the 'PropTypes' library in React?",
+      "options": [
+        "To define the structure of a React component",
+        "To perform type checking on component props",
+        "To handle HTTP requests",
+        "To manage state in functional components"
+      ],
+      "correctOption": 1,
+      "points": 10
+    },
+    {
+      "question": "What will happen if you use a non-existent key when updating an element in a React list?",
+      "options": [
+        "React will throw an error",
+        "The list will be re-rendered with the new element",
+        "React will ignore the update",
+        "The list will be cleared and re-rendered"
+      ],
+      "correctOption": 2,
+      "points": 20
+    },
+    {
+      "question": "What is the purpose of the 'useCallback' hook in React?",
+      "options": [
+        "To handle HTTP requests",
+        "To optimize performance by memoizing callbacks",
+        "To manage state in functional components",
+        "To create reusable custom hooks"
+      ],
+      "correctOption": 1,
+      "points": 20
+    },
+    {
+      "question": "What is the significance of the 'componentWillUnmount' lifecycle method in class components?",
+      "options": [
+        "It is called just before the component is removed from the DOM",
+        "It is called after the component is rendered for the first time",
+        "It is used to update the state of the component",
+        "It is used to set up event listeners"
+      ],
+      "correctOption": 0,
+      "points": 10
+    },
+    {
+      "question": "What are the best practices for optimizing React performance?",
+      "options": [
+        "Avoiding the use of React.memo",
+        "Using inline styles instead of CSS classes",
+        "Avoiding the use of React hooks",
+        "Using the 'key' prop correctly when rendering lists"
+      ],
+      "correctOption": 3,
+      "points": 20
+    },
+    {
+      "question": "What is the purpose of the 'useContext' hook in React?",
+      "options": [
+        "To handle HTTP requests",
+        "To manage state in functional components",
+        "To access context data from a parent component",
+        "To create reusable custom hooks"
+      ],
+      "correctOption": 2,
+      "points": 10
+    },
+    {
+      "question": "What is the significance of the 'shouldComponentUpdate' method returning false in class components?",
+      "options": [
+        "It prevents the component from re-rendering",
+        "It triggers a re-render of the component",
+        "It optimizes the performance of the component",
+        "It updates the state of the component"
+      ],
+      "correctOption": 0,
+      "points": 20
+    },
+    {
+      "question": "What is React.StrictMode used for?",
+      "options": [
+        "To enforce strict JavaScript syntax in React components",
+        "To enable debugging features in the React development tools",
+        "To highlight potential performance issues and unsafe practices",
+        "To render components with strict layout rules"
+      ],
+      "correctOption": 2,
+      "points": 20
+    },
+    {
+      "question": "What is the significance of the 'componentDidMount' lifecycle method in class components?",
+      "options": [
+        "It is called when the component is removed from the DOM",
+        "It is used to update the state of the component",
+        "It is called after the component is rendered for the first time",
+        "It is used to set up event listeners"
+      ],
+      "correctOption": 2,
+      "points": 10
+    },
+    {
+      "question": "What is the purpose of the 'useLayoutEffect' hook in React?",
+      "options": [
+        "To perform server-side rendering",
+        "To manage state in functional components",
+        "To handle HTTP requests",
+        "To perform synchronous side effects before the browser updates the screen"
+      ],
+      "correctOption": 3,
+      "points": 20
+    },
+    {
+      "question": "What is the significance of the 'render' method in class components?",
+      "options": [
+        "It returns the JSX markup for the component",
+        "It handles asynchronous operations",
+        "It triggers the component's initial rendering",
+        "It sets the initial state of the component"
+      ],
+      "correctOption": 0,
+      "points": 10
+    },
+    {
+      "question": "What are the benefits of using React in building user interfaces?",
+      "options": [
+        "It provides server-side rendering out of the box",
+        "It allows for easy two-way data binding",
+        "It improves application performance",
+        "It simplifies the use of inline styles"
+      ],
+      "correctOption": 2,
+      "points": 10
+    },
+    {
+      "question": "What is the purpose of the 'useImperativeHandle' hook in React?",
+      "options": [
+        "To create refs for functional components",
+        "To manage state in functional components",
+        "To optimize the performance of functional components",
+        "To allow a parent component to interact with its child's imperative methods"
+      ],
+      "correctOption": 3,
+      "points": 20
+    },
+    {
+      "question": "What is the purpose of the 'React.Fragment' component?",
+      "options": [
+        "To handle HTTP requests",
+        "To manage state in functional components",
+        "To provide a way to return multiple elements without adding an extra DOM node",
+        "To optimize the performance of React components"
+      ],
+      "correctOption": 2,
+      "points": 10
+    },
+    {
+      "question": "What is the significance of the 'componentDidUpdate' lifecycle method in class components?",
+      "options": [
+        "It is used to set up event listeners",
+        "It is called when the component is removed from the DOM",
+        "It is called after the component is rendered for the first time",
+        "It is called when the component's state or props change"
+      ],
+      "correctOption": 3,
+      "points": 10
+    },
+    {
+      "question": "What is the purpose of the 'useReducer' hook in React?",
+      "options": [
+        "To handle form submissions in React",
+        "To manage state in complex applications",
+        "To perform asynchronous operations",
+        "To create reusable custom hooks"
+      ],
+      "correctOption": 1,
+      "points": 20
+    },
+    {
+      "question": "What is the purpose of the 'React.createContext' method?",
+      "options": [
+        "To create custom hooks",
+        "To create context for a React component",
+        "To create a new React component",
+        "To create refs for functional components"
+      ],
+      "correctOption": 1,
+      "points": 10
+    },
+    {
+      "question": "What are hooks in React?",
+      "options": [
+        "Reusable UI components",
+        "Functions that allow you to 'hook' into React's lifecycle",
+        "State management libraries",
+        "Built-in HTML elements"
+      ],
+      "correctOption": 1,
+      "points": 10
+    },
+    {
+      "question": "What is the purpose of the 'useEffect' hook in React?",
+      "options": [
+        "To handle HTTP requests",
+        "To create reusable custom hooks",
+        "To manage state in functional components",
+        "To perform side effects in functional components"
+      ],
+      "correctOption": 3,
+      "points": 10
+    },
+    {
+      "question": "What is the difference between state and props in React?",
+      "options": [
+        "State is immutable, while props are mutable",
+        "State is passed from parent to child components, while props are managed within a component",
+        "State is used for configuration, while props are used for internal component state",
+        "State is local to a component, while props are passed from parent components"
+      ],
+      "correctOption": 3,
+      "points": 20
+    },
+    {
+      "question": "What is the purpose of the 'useContext' hook in React?",
+      "options": [
+        "To handle HTTP requests",
+        "To manage state in functional components",
+        "To access context data from a parent component",
+        "To create reusable custom hooks"
+      ],
+      "correctOption": 2,
+      "points": 10
+    },
+    {
+      "question": "What is the significance of the 'render' method in class components?",
+      "options": [
+        "It returns the JSX markup for the component",
+        "It handles asynchronous operations",
+        "It triggers the component's initial rendering",
+        "It sets the initial state of the component"
+      ],
+      "correctOption": 0,
+      "points": 10
+    },
+    {
+      "question": "What are the benefits of using React in building user interfaces?",
+      "options": [
+        "It provides server-side rendering out of the box",
+        "It allows for easy two-way data binding",
+        "It improves application performance",
+        "It simplifies the use of inline styles"
+      ],
+      "correctOption": 2,
+      "points": 10
+    },
+    {
+      "question": "What is the purpose of the 'useImperativeHandle' hook in React?",
+      "options": [
+        "To create refs for functional components",
+        "To manage state in functional components",
+        "To optimize the performance of functional components",
+        "To allow a parent component to interact with its child's imperative methods"
+      ],
+      "correctOption": 3,
+      "points": 20
+    },
+    {
+      "question": "What is the purpose of the 'React.Fragment' component?",
+      "options": [
+        "To handle HTTP requests",
+        "To manage state in functional components",
+        "To provide a way to return multiple elements without adding an extra DOM node",
+        "To optimize the performance of React components"
+      ],
+      "correctOption": 2,
+      "points": 10
+    },
+    {
+      "question": "What is the significance of the 'componentDidUpdate' lifecycle method in class components?",
+      "options": [
+        "It is used to set up event listeners",
+        "It is called when the component is removed from the DOM",
+        "It is called after the component is rendered for the first time",
+        "It is called when the component's state or props change"
+      ],
+      "correctOption": 3,
+      "points": 10
+    },
+    {
+      "question": "What is the purpose of the 'useReducer' hook in React?",
+      "options": [
+        "To handle form submissions in React",
+        "To manage state in complex applications",
+        "To perform asynchronous operations",
+        "To create reusable custom hooks"
+      ],
+      "correctOption": 1,
+      "points": 20
+    },
+    {
+      "question": "What is the purpose of the 'React.createContext' method?",
+      "options": [
+        "To create custom hooks",
+        "To create context for a React component",
+        "To create a new React component",
+        "To create refs for functional components"
+      ],
+      "correctOption": 1,
+      "points": 10
+    },
+    {
+      "question": "What are hooks in React?",
+      "options": [
+        "Reusable UI components",
+        "Functions that allow you to 'hook' into React's lifecycle",
+        "State management libraries",
+        "Built-in HTML elements"
+      ],
+      "correctOption": 1,
+      "points": 10
+    },
+    {
+      "question": "What is the purpose of the 'useEffect' hook in React?",
+      "options": [
+        "To handle HTTP requests",
+        "To create reusable custom hooks",
+        "To manage state in functional components",
+        "To perform side effects in functional components"
+      ],
+      "correctOption": 3,
+      "points": 10
+    },
+    {
+      "question": "What is the difference between state and props in React?",
+      "options": [
+        "State is immutable, while props are mutable",
+        "State is passed from parent to child components, while props are managed within a component",
+        "State is used for configuration, while props are used for internal component state",
+        "State is local to a component, while props are passed from parent components"
+      ],
+      "correctOption": 3,
+      "points": 20
+    },
+    {
+      "question": "What is the purpose of the 'useMemo' hook in React?",
+      "options": [
+        "To perform server-side rendering",
+        "To memoize expensive computations",
+        "To handle asynchronous operations",
+        "To manage state in functional components"
+      ],
+      "correctOption": 1,
+      "points": 20
+    },
+    {
+      "question": "What is React Router used for?",
+      "options": [
+        "To manage state in React applications",
+        "To perform server-side rendering",
+        "To handle HTTP requests",
+        "To implement navigation in a single-page application"
+      ],
+      "correctOption": 3,
+      "points": 10
+    },
+    {
+      "question": "What are React components?",
+      "options": [
+        "Functions that handle HTTP requests",
+        "Reusable UI elements that encapsulate logic and markup",
+        "Built-in HTML elements like div and span",
+        "Functions that manage state in React applications"
+      ],
+      "correctOption": 1,
+      "points": 10
+    },
+    {
+      "question": "How can you optimize performance in React?",
+      "options": [
+        "By using a higher-order component (HOC)",
+        "By using the 'useEffect' hook",
+        "By rendering fewer components",
+        "By avoiding the use of React hooks"
+      ],
+      "correctOption": 2,
+      "points": 10
+    },
+    {
+      "question": "What are controlled components in React forms?",
+      "options": [
+        "Components that use a remote server for state management",
+        "Components that manage their own state internally",
+        "Components that are rendered conditionally",
+        "Components that receive their current value through props and notify changes through callbacks"
+      ],
+      "correctOption": 3,
+      "points": 20
+    },
+    {
+      "question": "What is the purpose of the 'dangerouslySetInnerHTML' attribute in React?",
+      "options": [
+        "To create inline styles",
+        "To sanitize user input",
+        "To render raw HTML content",
+        "To handle HTTP requests"
+      ],
+      "correctOption": 2,
+      "points": 10
+    },
+    {
+      "question": "What is React.memo used for?",
+      "options": [
+        "To perform server-side rendering",
+        "To create memoized selectors",
+        "To optimize functional components for performance",
+        "To manage state in class components"
+      ],
+      "correctOption": 2,
+      "points": 10
+    },
+    {
+      "question": "What is the purpose of the 'shouldComponentUpdate' lifecycle method in class components?",
+      "options": [
+        "To control the component's initial rendering",
+        "To determine if the component should re-render or not",
+        "To access props and state within the component",
+        "To trigger side effects when the component mounts"
+      ],
+      "correctOption": 1,
+      "points": 10
+    },
+    {
+      "question": "What is the purpose of the 'forwardRef' function in React?",
+      "options": [
+        "To create refs for functional components",
+        "To pass props to child components",
+        "To optimize the performance of functional components",
+        "To forward data from one component to another"
+      ],
+      "correctOption": 0,
+      "points": 10
+    },
+    {
+      "question": "What are React portals used for?",
+      "options": [
+        "To manage authentication and authorization",
+        "To perform server-side rendering",
+        "To handle HTTP requests",
+        "To render children into a different DOM subtree"
+      ],
+      "correctOption": 3,
+      "points": 20
+    },
+    {
+      "question": "What is the purpose of the 'useMemo' hook in React?",
+      "options": [
+        "To perform server-side rendering",
+        "To memoize expensive computations",
+        "To handle asynchronous operations",
+        "To manage state in functional components"
+      ],
+      "correctOption": 1,
+      "points": 20
+    },
+    {
+      "question": "What is React Router used for?",
+      "options": [
+        "To manage state in React applications",
+        "To perform server-side rendering",
+        "To handle HTTP requests",
+        "To implement navigation in a single-page application"
+      ],
+      "correctOption": 3,
+      "points": 10
+    },
+    {
+      "question": "What are React components?",
+      "options": [
+        "Functions that handle HTTP requests",
+        "Reusable UI elements that encapsulate logic and markup",
+        "Built-in HTML elements like div and span",
+        "Functions that manage state in React applications"
+      ],
+      "correctOption": 1,
+      "points": 10
+    },
+    {
+      "question": "How can you optimize performance in React?",
+      "options": [
+        "By using a higher-order component (HOC)",
+        "By using the 'useEffect' hook",
+        "By rendering fewer components",
+        "By avoiding the use of React hooks"
+      ],
+      "correctOption": 2,
+      "points": 10
+    },
+    {
+      "question": "What are controlled components in React forms?",
+      "options": [
+        "Components that use a remote server for state management",
+        "Components that manage their own state internally",
+        "Components that are rendered conditionally",
+        "Components that receive their current value through props and notify changes through callbacks"
+      ],
+      "correctOption": 3,
+      "points": 20
+    },
+    {
+      "question": "What is the purpose of the 'dangerouslySetInnerHTML' attribute in React?",
+      "options": [
+        "To create inline styles",
+        "To sanitize user input",
+        "To render raw HTML content",
+        "To handle HTTP requests"
+      ],
+      "correctOption": 2,
+      "points": 10
+    },
+    {
+      "question": "What is React.memo used for?",
+      "options": [
+        "To perform server-side rendering",
+        "To create memoized selectors",
+        "To optimize functional components for performance",
+        "To manage state in class components"
+      ],
+      "correctOption": 2,
+      "points": 10
+    },
+    {
+      "question": "What is the purpose of the 'shouldComponentUpdate' lifecycle method in class components?",
+      "options": [
+        "To control the component's initial rendering",
+        "To determine if the component should re-render or not",
+        "To access props and state within the component",
+        "To trigger side effects when the component mounts"
+      ],
+      "correctOption": 1,
+      "points": 10
+    },
+    {
+      "question": "What is the purpose of the 'forwardRef' function in React?",
+      "options": [
+        "To create refs for functional components",
+        "To pass props to child components",
+        "To optimize the performance of functional components",
+        "To forward data from one component to another"
+      ],
+      "correctOption": 0,
+      "points": 10
+    },
+    {
+      "question": "What are React portals used for?",
+      "options": [
+        "To manage authentication and authorization",
+        "To perform server-side rendering",
+        "To handle HTTP requests",
+        "To render children into a different DOM subtree"
+      ],
+      "correctOption": 3,
+      "points": 20
+    },
+    {
+      "question": "What is the purpose of the 'useMemo' hook in React?",
+      "options": [
+        "To perform server-side rendering",
+        "To memoize expensive computations",
+        "To handle asynchronous operations",
+        "To manage state in functional components"
+      ],
+      "correctOption": 1,
+      "points": 20
+    },
+    {
+      "question": "What is React Router used for?",
+      "options": [
+        "To manage state in React applications",
+        "To perform server-side rendering",
+        "To handle HTTP requests",
+        "To implement navigation in a single-page application"
+      ],
+      "correctOption": 3,
+      "points": 10
+    },
+    {
+      "question": "What are React components?",
+      "options": [
+        "Functions that handle HTTP requests",
+        "Reusable UI elements that encapsulate logic and markup",
+        "Built-in HTML elements like div and span",
+        "Functions that manage state in React applications"
+      ],
+      "correctOption": 1,
+      "points": 10
+    },
+    {
+      "question": "How can you optimize performance in React?",
+      "options": [
+        "By using a higher-order component (HOC)",
+        "By using the 'useEffect' hook",
+        "By rendering fewer components",
+        "By avoiding the use of React hooks"
+      ],
+      "correctOption": 2,
+      "points": 10
+    },
+    {
+      "question": "What are controlled components in React forms?",
+      "options": [
+        "Components that use a remote server for state management",
+        "Components that manage their own state internally",
+        "Components that are rendered conditionally",
+        "Components that receive their current value through props and notify changes through callbacks"
+      ],
+      "correctOption": 3,
+      "points": 20
+    },
+    {
+      "question": "What is the purpose of the 'dangerouslySetInnerHTML' attribute in React?",
+      "options": [
+        "To create inline styles",
+        "To sanitize user input",
+        "To render raw HTML content",
+        "To handle HTTP requests"
+      ],
+      "correctOption": 2,
+      "points": 10
+    },
+    {
+      "question": "What is React.memo used for?",
+      "options": [
+        "To perform server-side rendering",
+        "To create memoized selectors",
+        "To optimize functional components for performance",
+        "To manage state in class components"
+      ],
+      "correctOption": 2,
+      "points": 10
+    },
+    {
+      "question": "What is the purpose of the 'shouldComponentUpdate' lifecycle method in class components?",
+      "options": [
+        "To control the component's initial rendering",
+        "To determine if the component should re-render or not",
+        "To access props and state within the component",
+        "To trigger side effects when the component mounts"
+      ],
+      "correctOption": 1,
+      "points": 10
+    },
+    {
+      "question": "What is the purpose of the 'forwardRef' function in React?",
+      "options": [
+        "To create refs for functional components",
+        "To pass props to child components",
+        "To optimize the performance of functional components",
+        "To forward data from one component to another"
+      ],
+      "correctOption": 0,
+      "points": 10
+    },
+    {
+      "question": "What are React portals used for?",
+      "options": [
+        "To manage authentication and authorization",
+        "To perform server-side rendering",
+        "To handle HTTP requests",
+        "To render children into a different DOM subtree"
+      ],
+      "correctOption": 3,
+      "points": 20
+    },
+    {
+      "question": "What is the purpose of the 'useMemo' hook in React?",
+      "options": [
+        "To perform server-side rendering",
+        "To memoize expensive computations",
+        "To handle asynchronous operations",
+        "To manage state in functional components"
+      ],
+      "correctOption": 1,
+      "points": 20
+    },
+    {
+      "question": "What is React Router used for?",
+      "options": [
+        "To manage state in React applications",
+        "To perform server-side rendering",
+        "To handle HTTP requests",
+        "To implement navigation in a single-page application"
+      ],
+      "correctOption": 3,
+      "points": 10
+    },
+    {
+      "question": "What are React components?",
+      "options": [
+        "Functions that handle HTTP requests",
+        "Reusable UI elements that encapsulate logic and markup",
+        "Built-in HTML elements like div and span",
+        "Functions that manage state in React applications"
+      ],
+      "correctOption": 1,
+      "points": 10
+    },
+    {
+      "question": "How can you optimize performance in React?",
+      "options": [
+        "By using a higher-order component (HOC)",
+        "By using the 'useEffect' hook",
+        "By rendering fewer components",
+        "By avoiding the use of React hooks"
+      ],
+      "correctOption": 2,
+      "points": 10
+    },
+    {
+      "question": "What are controlled components in React forms?",
+      "options": [
+        "Components that use a remote server for state management",
+        "Components that manage their own state internally",
+        "Components that are rendered conditionally",
+        "Components that receive their current value through props and notify changes through callbacks"
+      ],
+      "correctOption": 3,
+      "points": 20
+    },
+    {
+      "question": "What is the purpose of the 'dangerouslySetInnerHTML' attribute in React?",
+      "options": [
+        "To create inline styles",
+        "To sanitize user input",
+        "To render raw HTML content",
+        "To handle HTTP requests"
+      ],
+      "correctOption": 2,
+      "points": 10
+    },
+    {
+      "question": "What is React.memo used for?",
+      "options": [
+        "To perform server-side rendering",
+        "To create memoized selectors",
+        "To optimize functional components for performance",
+        "To manage state in class components"
+      ],
+      "correctOption": 2,
+      "points": 10
+    },
+    {
+      "question": "What is the purpose of the 'shouldComponentUpdate' lifecycle method in class components?",
+      "options": [
+        "To control the component's initial rendering",
+        "To determine if the component should re-render or not",
+        "To access props and state within the component",
+        "To trigger side effects when the component mounts"
+      ],
+      "correctOption": 1,
+      "points": 10
+    },
+    {
+      "question": "What is the purpose of the 'forwardRef' function in React?",
+      "options": [
+        "To create refs for functional components",
+        "To pass props to child components",
+        "To optimize the performance of functional components",
+        "To forward data from one component to another"
+      ],
+      "correctOption": 0,
+      "points": 10
+    },
+    {
+      "question": "What are React portals used for?",
+      "options": [
+        "To manage authentication and authorization",
+        "To perform server-side rendering",
+        "To handle HTTP requests",
+        "To render children into a different DOM subtree"
+      ],
+      "correctOption": 3,
+      "points": 20
+    },
+    {
+      "question": "What is the purpose of the 'useMemo' hook in React?",
+      "options": [
+        "To perform server-side rendering",
+        "To memoize expensive computations",
+        "To handle asynchronous operations",
+        "To manage state in functional components"
+      ],
+      "correctOption": 1,
+      "points": 20
+    },
+    {
+      "question": "What is React Router used for?",
+      "options": [
+        "To manage state in React applications",
+        "To perform server-side rendering",
+        "To handle HTTP requests",
+        "To implement navigation in a single-page application"
+      ],
+      "correctOption": 3,
+      "points": 10
+    },
+    {
+      "question": "What are React components?",
+      "options": [
+        "Functions that handle HTTP requests",
+        "Reusable UI elements that encapsulate logic and markup",
+        "Built-in HTML elements like div and span",
+        "Functions that manage state in React applications"
+      ],
+      "correctOption": 1,
+      "points": 10
     }
   ]
 }

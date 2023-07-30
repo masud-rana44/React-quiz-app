@@ -1,14 +1,14 @@
 import { useQuiz } from "../contexts/QuizContext";
 
-function Option({ option, optionIndex }) {
-  const { answer, questions, index, dispatch } = useQuiz();
+function Option({ option, optionIndex, question }) {
+  const { answer, dispatch } = useQuiz();
   const hasAnswered = answer !== null;
 
   return (
     <button
       className={`btn btn-option ${optionIndex === answer ? "answer" : ""} ${
         hasAnswered
-          ? optionIndex === questions[index].correctOption
+          ? optionIndex === question.correctOption
             ? "correct"
             : "wrong"
           : ""

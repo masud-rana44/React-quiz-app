@@ -1,12 +1,15 @@
 import { createContext, useReducer, useContext, useEffect } from "react";
+import { getRandomQuestions } from "../utils";
 
 const QuizContext = createContext();
 
-const SECS_PER_QUESTION = 30;
+const SECS_PER_QUESTION = 20;
 const BASE_URL = "http://localhost:8000";
 
 const initialState = {
   questions: [],
+  numParticipatedQuestions: 50,
+  participatedQuestions: [],
 
   // 'loading', 'error', 'ready', 'active', 'finished'
   status: "loading",
@@ -20,13 +23,35 @@ const initialState = {
 function reducer(state, action) {
   switch (action.type) {
     case "dataReceived":
-      return { ...state, questions: action.payload, status: "ready" };
+      // eslint-disable-next-line no-case-declarations
+      const numParticipatedQuestions = Math.round(action.payload.length / 3);
+
+      return {
+        ...state,
+        questions: action.payload,
+        numParticipatedQuestions,
+        participatedQuestions: getRandomQuestions(
+          action.payload,
+          numParticipatedQuestions
+        ),
+        status: "ready",
+      };
     case "dataFailed":
       return { ...state, status: "error" };
+    case "dataUpdated":
+      return {
+        ...state,
+        numParticipatedQuestions: action.payload,
+        participatedQuestions: getRandomQuestions(
+          state.questions,
+          action.payload
+        ),
+      };
     case "start":
       return {
         ...state,
-        secondsRemaining: state.questions.length * SECS_PER_QUESTION,
+        secondsRemaining:
+          state.participatedQuestions.length * SECS_PER_QUESTION,
         status: "active",
       };
     case "newAnswer":
@@ -54,6 +79,11 @@ function reducer(state, action) {
       return {
         ...initialState,
         status: "ready",
+        numParticipatedQuestions: state.numParticipatedQuestions,
+        participatedQuestions: getRandomQuestions(
+          state.questions,
+          state.numParticipatedQuestions
+        ),
         highScore: state.highScore,
         questions: state.questions,
       };
@@ -71,12 +101,22 @@ function reducer(state, action) {
 
 function QuizProvider({ children }) {
   const [
-    { questions, status, index, answer, points, highScore, secondsRemaining },
+    {
+      questions,
+      numParticipatedQuestions,
+      participatedQuestions,
+      status,
+      index,
+      answer,
+      points,
+      highScore,
+      secondsRemaining,
+    },
     dispatch,
   ] = useReducer(reducer, initialState);
 
   const numQuestions = questions.length;
-  const maxPossiblePoints = questions.reduce(
+  const maxPossiblePoints = participatedQuestions.reduce(
     (prev, cur) => prev + cur.points,
     0
   );
@@ -91,7 +131,8 @@ function QuizProvider({ children }) {
   return (
     <QuizContext.Provider
       value={{
-        questions,
+        questions: participatedQuestions,
+        numParticipatedQuestions,
         status,
         index,
         answer,
