@@ -27,6 +27,7 @@ body {
   color: var(--color-light);
   background-color: var(--color-darkest);
   padding: 3.2rem;
+  overflow: auto;
 }
 
 .app {
@@ -216,6 +217,14 @@ progress {
 
 .btn-ui {
   float: right;
+}
+
+.prevBtn {
+  float: left;
+}
+
+.btn-solution {
+  margin-left: 1rem;
 }
 
 .options {

@@ -8,6 +8,7 @@ import Question from "./Question";
 import Footer from "./Footer";
 import Timer from "./Timer";
 import NextButton from "./NextButton";
+import PrevButton from "./PrevButton";
 import ProgressBar from "./ProgressBar";
 import FinishScreen from "./FinishScreen";
 
@@ -32,6 +33,15 @@ function App() {
           </>
         )}
         {status === "finished" && <FinishScreen />}
+        {status === "solution" && (
+          <>
+            <Question isSolution />
+            <Footer>
+              <NextButton isSolution />
+              <PrevButton />
+            </Footer>
+          </>
+        )}
       </Main>
     </div>
   );

@@ -14,7 +14,7 @@ function StartScreen() {
         <input
           id="numParticipatedQuestions"
           type="range"
-          min={Math.round(numQuestions / 10)}
+          min={Math.round(numQuestions / 100)}
           max={numQuestions}
           value={numParticipatedQuestions}
           onChange={(e) =>

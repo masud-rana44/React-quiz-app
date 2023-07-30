@@ -1,6 +1,6 @@
 import Option from "./Option";
 
-function Options({ question }) {
+function Options({ question, isSolution }) {
   return (
     <div className="options">
       {question.options.map((option, index) => (
@@ -9,6 +9,7 @@ function Options({ question }) {
           optionIndex={index}
           option={option}
           question={question}
+          isSolution={isSolution}
         />
       ))}
     </div>

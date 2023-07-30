@@ -15,6 +15,7 @@ const initialState = {
   status: "loading",
   index: 0,
   answer: null,
+  allAnswers: [],
   points: 0,
   highScore: 0,
   secondsRemaining: 0,
@@ -23,16 +24,13 @@ const initialState = {
 function reducer(state, action) {
   switch (action.type) {
     case "dataReceived":
-      // eslint-disable-next-line no-case-declarations
-      const numParticipatedQuestions = Math.round(action.payload.length / 3);
-
       return {
         ...state,
         questions: action.payload,
-        numParticipatedQuestions,
+        numParticipatedQuestions: Math.round(action.payload.length / 4),
         participatedQuestions: getRandomQuestions(
           action.payload,
-          numParticipatedQuestions
+          state.numParticipatedQuestions
         ),
         status: "ready",
       };
@@ -56,11 +54,12 @@ function reducer(state, action) {
       };
     case "newAnswer":
       // eslint-disable-next-line no-case-declarations
-      const question = state.questions.at(state.index);
+      const question = state.participatedQuestions.at(state.index);
 
       return {
         ...state,
         answer: action.payload,
+        allAnswers: [...state.allAnswers, action.payload],
         points:
           action.payload === question.correctOption
             ? state.points + question.points
@@ -68,6 +67,8 @@ function reducer(state, action) {
       };
     case "nextQuestion":
       return { ...state, answer: null, index: state.index + 1 };
+    case "prevQuestion":
+      return { ...state, answer: null, index: state.index - 1 };
     case "finish":
       return {
         ...state,
@@ -75,6 +76,9 @@ function reducer(state, action) {
         highScore:
           state.highScore > state.points ? state.highScore : state.points,
       };
+    case "getSolution":
+      return { ...state, status: "solution", index: 0 };
+
     case "restart":
       return {
         ...initialState,
@@ -108,6 +112,7 @@ function QuizProvider({ children }) {
       status,
       index,
       answer,
+      allAnswers,
       points,
       highScore,
       secondsRemaining,
@@ -136,6 +141,7 @@ function QuizProvider({ children }) {
         status,
         index,
         answer,
+        allAnswers,
         points,
         highScore,
         secondsRemaining,

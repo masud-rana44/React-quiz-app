@@ -1,12 +1,17 @@
 import { useQuiz } from "../contexts/QuizContext";
 
-function Option({ option, optionIndex, question }) {
-  const { answer, dispatch } = useQuiz();
-  const hasAnswered = answer !== null;
+function Option({ option, optionIndex, question, isSolution }) {
+  const { index, answer, allAnswers, dispatch } = useQuiz();
+  const hasAnswered = answer !== null || isSolution;
 
   return (
     <button
-      className={`btn btn-option ${optionIndex === answer ? "answer" : ""} ${
+      className={`btn btn-option ${
+        (!isSolution && optionIndex === answer) ||
+        (isSolution && optionIndex === allAnswers[index])
+          ? "answer"
+          : ""
+      } ${
         hasAnswered
           ? optionIndex === question.correctOption
             ? "correct"

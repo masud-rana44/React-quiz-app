@@ -1,9 +1,13 @@
 import { useQuiz } from "../contexts/QuizContext";
 
-function NextButton() {
+function NextButton({ isSolution }) {
   const { dispatch, answer, index, numParticipatedQuestions } = useQuiz();
 
-  if (answer === null) return null;
+  if (
+    (!isSolution && answer === null) ||
+    (isSolution && index === numParticipatedQuestions - 1)
+  )
+    return "";
 
   if (index < numParticipatedQuestions - 1)
     return (
